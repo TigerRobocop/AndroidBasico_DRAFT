@@ -16,7 +16,7 @@ import android.view.MenuItem;
 
 import com.tigerrobocop.liv.collection.Model.Item;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnItemClick {
 
     private FragmentManager mFragmentManager;
     private ItemListFragment mItemListFragment;
@@ -68,6 +68,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // LIST ITEM CLICKED
+    @Override
+    public void itemClick(Item i) {
+
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra(DetailsActivity.EXTRA_ITEM_DETAILS, i);
+        startActivity(intent);
+
+    }
+
+
 
     /// btn click - new user?
     public void CreateNewUser() {
@@ -97,4 +108,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

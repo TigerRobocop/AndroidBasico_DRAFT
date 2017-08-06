@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tigerrobocop.liv.collection.Model.Item;
 
@@ -15,8 +17,8 @@ public class DetailsFragment extends Fragment {
 
 
     public static final String EXTRA_ITEM_DETAILS = "itemDetails";
-Item mItem;
-    private OnFragmentInteractionListener mListener;
+    public static final String TAG_DETAILS = "itemDetails";
+    Item mItem;
 
     public DetailsFragment() {
         // Required empty public constructor
@@ -43,9 +45,23 @@ Item mItem;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false);
+        View layout = inflater.inflate(R.layout.fragment_details, container, false);
+
+        /*mTxtName = (TextView) layout.findViewById(R.id.textView_name);
+        mTxtBrand = (TextView) layout.findViewById(R.id.textView_brand);
+        mTxtColor = (TextView) layout.findViewById(R.id.textView_color);
+        mImgPolish = (ImageView)layout.findViewById(R.id.imageView_polish);
+
+        if (mPolish != null) {
+            mTxtName.setText(mPolish.name);
+            mTxtBrand.setText(mPolish.brand);
+            mTxtColor.setText(mPolish.color);
+            Picasso.with(getContext()).load(mPolish.imageUrl).into(mImgPolish);
+            //    mImgPolish.setima
+        }*/
+        return layout;
     }
 
-    "http://developer.android.com/training/basics/fragments/communicating.html"
+    //"http://developer.android.com/training/basics/fragments/communicating.html"
 
 }
