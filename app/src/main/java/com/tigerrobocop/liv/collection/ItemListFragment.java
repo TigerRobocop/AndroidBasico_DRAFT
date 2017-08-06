@@ -51,6 +51,28 @@ public class ItemListFragment extends ListFragment {
     }
 
 
+
+    public void searchItem(String s) {
+        if (s == null || s.trim().equals("")) {
+            clearSearch();
+            return;
+        }
+
+        List<Item> retorno = new ArrayList<Item>(mListItem);
+        for (int i = retorno.size() - 1; i >= 0; i--) {
+            Item it = retorno.get(i);
+            String title = getActivity().getString(it.title);
+
+            if (!title.toUpperCase().contains(s.toUpperCase())) {
+                retorno.remove(it);
+            }
+
+            mAdapter = new ItemAdapter(getActivity(), retorno);
+
+            setListAdapter(mAdapter);
+        }
+    }
+
     private List<Item> loadItems() {
         List<Item> retorno = new ArrayList<Item> ();
         retorno.add(new Item(1,
