@@ -20,6 +20,11 @@ public class DetailsFragment extends Fragment {
     public static final String TAG_DETAILS = "itemDetails";
     Item mItem;
 
+    TextView mTxtName;
+    TextView mTxtDescription;
+    TextView mTxtUrl;
+
+
     public DetailsFragment() {
         // Required empty public constructor
     }
@@ -47,18 +52,18 @@ public class DetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_details, container, false);
 
-        /*mTxtName = (TextView) layout.findViewById(R.id.textView_name);
-        mTxtBrand = (TextView) layout.findViewById(R.id.textView_brand);
-        mTxtColor = (TextView) layout.findViewById(R.id.textView_color);
-        mImgPolish = (ImageView)layout.findViewById(R.id.imageView_polish);
+        mTxtName = (TextView) layout.findViewById(R.id.textView_item);
+        mTxtDescription = (TextView) layout.findViewById(R.id.textView_description);
+        mTxtUrl = (TextView) layout.findViewById(R.id.textView_url);
+       // mImgPolish = (ImageView)layout.findViewById(R.id.imageView_polish);
 
-        if (mPolish != null) {
-            mTxtName.setText(mPolish.name);
-            mTxtBrand.setText(mPolish.brand);
-            mTxtColor.setText(mPolish.color);
-            Picasso.with(getContext()).load(mPolish.imageUrl).into(mImgPolish);
+        if (mItem != null) {
+            mTxtName.setText(mItem.title);
+            mTxtDescription.setText(mItem.description);
+            mTxtUrl.setText(mItem.url);
+            // Picasso.with(getContext()).load(mPolish.imageUrl).into(mImgPolish);
             //    mImgPolish.setima
-        }*/
+        }
         return layout;
     }
 

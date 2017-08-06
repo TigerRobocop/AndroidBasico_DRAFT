@@ -1,11 +1,6 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.tigerrobocop.liv.collection.DetailsFragment">
-
-
-    <LinearLayout
+ <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.tigerrobocop.liv.collection.DetailsFragment"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp">
@@ -13,14 +8,14 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:id="@+id/imageView_polish"
+            android:id="@+id/imageView_item"
             android:layout_gravity="center_horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/textView_brand"
+            android:id="@+id/textView_item"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"/>
 
@@ -29,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView_name"
+            android:id="@+id/textView_description"
             android:layout_gravity="center_horizontal"
             />
 
@@ -37,8 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/textView_color"
+            android:id="@+id/textView_url"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
-</FrameLayout>

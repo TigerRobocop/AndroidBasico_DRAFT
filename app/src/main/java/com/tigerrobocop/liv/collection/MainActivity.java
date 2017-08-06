@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClick {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
         Item item = (Item)intent.getSerializableExtra(NewItemActivity.EXTRA_NEWITEM);
