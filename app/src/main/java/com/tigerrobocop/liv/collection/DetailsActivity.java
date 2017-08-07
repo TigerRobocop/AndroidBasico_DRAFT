@@ -23,16 +23,13 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-
-
-
         Intent intent = getIntent();
         Item item = (Item)intent.getSerializableExtra(EXTRA_ITEM_DETAILS);
 
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle(getString(item.title));
 
         DetailsFragment detailsFragment = DetailsFragment.newInstance(item);
 
@@ -41,7 +38,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         ft.replace(R.id.details, detailsFragment, DetailsFragment.TAG_DETAILS);
         ft.commit();
-
     }
 
     /*
