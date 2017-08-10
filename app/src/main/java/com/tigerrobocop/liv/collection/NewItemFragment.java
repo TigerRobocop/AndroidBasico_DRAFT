@@ -57,7 +57,6 @@ public class NewItemFragment extends Fragment {
                         "",
                         "");
 
-
                 createNotification(it);
 
                 Bundle bundle = new Bundle();
@@ -65,10 +64,6 @@ public class NewItemFragment extends Fragment {
                 returnIntent.putExtras(bundle);
 
                 getActivity().startActivity(returnIntent);
-
-                // returnIntent.putExtra(EXTRA_NEWITEM, mCurrentChoice);
-                // setResult(RESULT_OK, returnIntent);
-                // finish();
             }
         });
 
@@ -80,8 +75,6 @@ public class NewItemFragment extends Fragment {
         // Prepare intent which is triggered if the
         Intent intent = new Intent(getActivity(), DetailsActivity.class);
         intent.putExtra(DetailsActivity.EXTRA_ITEM_DETAILS, newItem);
-        //Bundle bundle = new Bundle();
-        //bundle.putSerializable(DetailsActivity.EXTRA_ITEM_DETAILS, newItem);
 
         PendingIntent pIntent = PendingIntent.getActivity(getActivity()
                 , (int) System.currentTimeMillis(), intent, 0);
