@@ -1,6 +1,9 @@
 package com.tigerrobocop.liv.collection;
 
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +16,7 @@ import android.widget.TextView;
 import com.tigerrobocop.liv.collection.Model.Item;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 
 /**
@@ -38,7 +42,7 @@ public class NewItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-      View layout = inflater.inflate(R.layout.fragment_new_item, container, false);
+        View layout = inflater.inflate(R.layout.fragment_new_item, container, false);
 
         mBtnSubmit = (Button) layout.findViewById(R.id.button_newItem_submit);
 
@@ -53,19 +57,50 @@ public class NewItemFragment extends Fragment {
                         "",
                         "");
 
+
+                createNotification(it);
+
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(TAG_NEWITEM, it);
                 returnIntent.putExtras(bundle);
 
                 getActivity().startActivity(returnIntent);
 
-               // returnIntent.putExtra(EXTRA_NEWITEM, mCurrentChoice);
-               // setResult(RESULT_OK, returnIntent);
-               // finish();
+                // returnIntent.putExtra(EXTRA_NEWITEM, mCurrentChoice);
+                // setResult(RESULT_OK, returnIntent);
+                // finish();
             }
         });
 
         return layout;
     }
 
+    public void createNotification(Item newItem) {
+
+        // Prepare intent which is triggered if the
+        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+        intent.putExtra(DetailsActivity.EXTRA_ITEM_DETAILS, newItem);
+        //Bundle bundle = new Bundle();
+        //bundle.putSerializable(DetailsActivity.EXTRA_ITEM_DETAILS, newItem);
+
+        PendingIntent pIntent = PendingIntent.getActivity(getActivity()
+                , (int) System.currentTimeMillis(), intent, 0);
+
+        // Build notification
+        // Actions are just fake
+        Notification noti = new Notification.Builder(getActivity())
+                .setContentTitle("New Item Added!!")
+                .setContentText("Subject").setSmallIcon(R.drawable.icon)
+                .setContentIntent(pIntent)
+                .addAction(R.drawable.icon, "Call", pIntent)
+                .addAction(R.drawable.icon, "More", pIntent)
+                .addAction(R.drawable.icon, "And more", pIntent).build();
+
+
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
+        // hide the notification after its selected
+        noti.flags |= Notification.FLAG_AUTO_CANCEL;
+
+        notificationManager.notify(0, noti);
+    }
 }

@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
     private FragmentManager mFragmentManager;
     private ItemListFragment mItemListFragment;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,58 +36,13 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
         mFragmentManager = getSupportFragmentManager();
         mItemListFragment = (ItemListFragment) mFragmentManager.findFragmentById(R.id.fragment_list_item);
 
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        ft.replace(R.id.fragment_list_item, mItemListFragment);
-        ft.commit();
-
-        /*
-
-            Bundle bundle = new Bundle();
-        bundle.putSerializable(NewItemFragment.EXTRA_NEWITEM, item);
-
-         if (item != null){
-            mItemListFragment.setArguments(bundle);
-        }
-
-        if(savedInstanceState != null){
-            FragmentTransaction ft = mFragmentManager.beginTransaction();
-
-            ItemListFragment newInstance = ItemListFragment.newInstance(item);
-
-            ft.replace(R.id.fragment_list_item, newInstance, ItemListFragment.TAG_NEWITEM);
-            ft.commit();
-        }else{
-            mItemListFragment = (ItemListFragment) mFragmentManager.findFragmentById(R.id.fragment_list_item);
-        }
-
-        */
-
-        /*
-
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-
-        ItemListFragment newInstance = ItemListFragment.newInstance(item);
-
-        ft.replace(R.id.fragment_list_item, newInstance, ItemListFragment.TAG_NEWITEM);
-        ft.commit();
-
-*/
-
-
-       /* if (item == null){
-            mItemListFragment = (ItemListFragment) mFragmentManager.findFragmentById(R.id.fragment_list_item);
-        }else {
-
-        }*/
-
-
-
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 CreateNewUser();
+
                 /*
                 // Prepare intent which is triggered if the
                 // notification is selected
@@ -116,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
 
                 // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                  //       .setAction("Action", null).show();
+*/
 
-                 */
             }
         });
     }
