@@ -10,6 +10,9 @@
     <string name="item_3_title">Title 3</string>
     <string name="item_3_description">Description 3</string>
 
+    <string name="item_4_title">Title 4</string>
+    <string name="item_4_description">Description 4</string>
+
 
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -106,4 +109,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_details">DetailsActivity</string>
     <string name="hint_search_by_title">Search by title</string>
+    <string name="new_item_title">Item</string>
+    <string name="new_item_description">Description</string>
+    <string name="btn_submit_newItem">Submit</string>
 </resources>

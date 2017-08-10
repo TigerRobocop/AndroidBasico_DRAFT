@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
     private FragmentManager mFragmentManager;
     private ItemListFragment mItemListFragment;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +35,62 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent = getIntent();
-        Item item = (Item)intent.getSerializableExtra(NewItemActivity.EXTRA_NEWITEM);
-
         mFragmentManager = getSupportFragmentManager();
         mItemListFragment = (ItemListFragment) mFragmentManager.findFragmentById(R.id.fragment_list_item);
+
+        FragmentTransaction ft = mFragmentManager.beginTransaction();
+        ft.replace(R.id.fragment_list_item, mItemListFragment);
+        ft.commit();
+
+        /*
+
+            Bundle bundle = new Bundle();
+        bundle.putSerializable(NewItemFragment.EXTRA_NEWITEM, item);
+
+         if (item != null){
+            mItemListFragment.setArguments(bundle);
+        }
+
+        if(savedInstanceState != null){
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+
+            ItemListFragment newInstance = ItemListFragment.newInstance(item);
+
+            ft.replace(R.id.fragment_list_item, newInstance, ItemListFragment.TAG_NEWITEM);
+            ft.commit();
+        }else{
+            mItemListFragment = (ItemListFragment) mFragmentManager.findFragmentById(R.id.fragment_list_item);
+        }
+
+        */
+
+        /*
+
+        FragmentTransaction ft = mFragmentManager.beginTransaction();
+
+        ItemListFragment newInstance = ItemListFragment.newInstance(item);
+
+        ft.replace(R.id.fragment_list_item, newInstance, ItemListFragment.TAG_NEWITEM);
+        ft.commit();
+
+*/
+
+
+       /* if (item == null){
+            mItemListFragment = (ItemListFragment) mFragmentManager.findFragmentById(R.id.fragment_list_item);
+        }else {
+
+        }*/
+
+
 
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                CreateNewUser();
+                /*
                 // Prepare intent which is triggered if the
                 // notification is selected
                 Intent intent =  getIntent(); //new Intent(getA, MainActivity.class);
@@ -68,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
 
                 // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                  //       .setAction("Action", null).show();
+
+                 */
             }
         });
     }
@@ -87,9 +137,11 @@ public class MainActivity extends AppCompatActivity implements OnItemClick
     /// btn click - new user?
     public void CreateNewUser() {
         // "http://developer.android.com/training/basics/fragments/communicating.html"
-      //  Intent intent = new Intent(this, ImageUploadActivity.class);
-        //startActivity(intent);
+      Intent intent = new Intent(this, NewItemActivity.class);
+        startActivity(intent);
     }
+
+
 
 
     @Override

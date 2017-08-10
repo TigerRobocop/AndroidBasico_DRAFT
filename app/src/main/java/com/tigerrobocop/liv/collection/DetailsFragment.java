@@ -24,7 +24,6 @@ public class DetailsFragment extends Fragment {
     TextView mTxtDescription;
     TextView mTxtUrl;
 
-
     public DetailsFragment() {
         // Required empty public constructor
     }

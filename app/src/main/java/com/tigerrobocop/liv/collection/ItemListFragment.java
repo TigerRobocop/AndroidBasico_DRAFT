@@ -2,6 +2,7 @@ package com.tigerrobocop.liv.collection;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,14 +26,47 @@ public class ItemListFragment extends ListFragment {
     List<Item> mListItem;
     ItemAdapter mAdapter;
 
+    public static final String TAG_NEWITEM = "newItem";
+
+    public ItemListFragment() {
+        // Required empty public constructor
+    }
+
+    public static ItemListFragment newInstance(Item item) {
+        ItemListFragment fragment = new ItemListFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(NewItemFragment.EXTRA_NEWITEM, item);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mListItem = loadItems();
+
+        Intent intent = getActivity().getIntent();
+        Item item = (Item)intent.getSerializableExtra(NewItemActivity.EXTRA_NEWITEM);
+
+        if (item != null) {
+           // Item it = (Item) bundle.getSerializable(NewItemFragment.EXTRA_NEWITEM);
+            mListItem.add(item);
+        }
+
         clearSearch();
     }
 
+
+
+    /*
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                     Bundle savedInstanceState) {
+        View layout = inflater.inflate(R.layout.fragment_list_item, container, false);
+        return layout;
+    }
+*/
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
