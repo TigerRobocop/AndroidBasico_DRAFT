@@ -41,17 +41,17 @@ public class CollectionApp extends Application {
         List<Beer> result = new ArrayList<>();
 
 
-        result.add(new Beer(1, "Capunga", R.integer.local
-                , "Recife - PE", R.drawable.logo_capunga));
+        result.add(new Beer(1, "IPA", "Capunga", R.integer.local
+                , "Recife - PE", R.drawable.logo_capunga,"http://www.capunga.com/"));
 
-        result.add(new Beer(2, "Debron", R.integer.local
-                , "Recife - PE", R.drawable.logo_debron));
+        result.add(new Beer(2, "Lager", "Debron", R.integer.local
+                , "Jabooatão dos Guararapes - PE", R.drawable.logo_debron, "https://www.facebook.com/DeBronBier/"));
 
-        result.add(new Beer(3, "Ekaut", R.integer.local
-                , "Recife - PE", R.drawable.logo_ekaut));
+        result.add(new Beer(3, "IPA", "Ekaut", R.integer.local
+                , "Recife - PE", R.drawable.logo_ekaut, "http://ekaut.com.br/"));
 
-        result.add(new Beer(4, "Indie Beer", R.integer.local
-                , "Recife - PE", R.drawable.logo_indie));
+        result.add(new Beer(4, "Pilsen" ,"Indie Beer", R.integer.local
+                , "Recife - PE", R.drawable.logo_indie, "https://www.facebook.com/IBCA2016/"));
 
         return result;
 
