@@ -44,7 +44,7 @@ public class ItemListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mListItem = loadItems();
+        mListItem = ((CollectionApp)getActivity().getApplication()).getList(); //loadItems();
 
         Intent intent = getActivity().getIntent();
         Item item = (Item)intent.getSerializableExtra(NewItemActivity.EXTRA_NEWITEM);

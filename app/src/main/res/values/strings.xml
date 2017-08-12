@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Collection</string>
 
+    <string name="origin_local">Local</string>
+    <string name="origin_imported">Imported</string>
+
     <string name="item_1_title">Title 1</string>
     <string name="item_1_description">Description 1</string>
 

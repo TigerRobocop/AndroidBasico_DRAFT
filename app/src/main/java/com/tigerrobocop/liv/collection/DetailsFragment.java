@@ -42,6 +42,10 @@ public class DetailsFragment extends Fragment {
         if (getArguments() != null) {
             mItem = (Item) getArguments().getSerializable(EXTRA_ITEM_DETAILS);
             setHasOptionsMenu(true);
+
+            if(!itemExists(mItem)){
+                ((CollectionApp)getActivity().getApplication()).getList().add(mItem);
+            }
         }
     }
 
@@ -66,6 +70,17 @@ public class DetailsFragment extends Fragment {
         return layout;
     }
 
+    boolean itemExists(Item item){
+        boolean exists = false;
+
+        for(Item it :  ((CollectionApp)getActivity().getApplication()).getList()) {
+            if(it.id == item.id) {
+                return true;
+            }
+        }
+
+        return exists;
+    }
     //"http://developer.android.com/training/basics/fragments/communicating.html"
 
 }
